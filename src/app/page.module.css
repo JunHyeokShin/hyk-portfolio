@@ -87,7 +87,7 @@
 }
 
 .project-description {
-  line-height: 85%;
+  line-height: 110%;
 }
 
 .button {
@@ -99,8 +99,9 @@
   border: none;
   border-radius: 3.75rem;
   background: none;
-  outline: 1 solid;
   outline-color: var(--white);
+  outline-style: solid;
+  outline-width: 1px;
   cursor: pointer;
 }
 
@@ -114,4 +115,75 @@
 .button-icon {
   font-size: 1.5rem;
   color: var(--yellow);
+}
+
+@media screen and (max-width: 110em) {
+  .wrapper {
+    padding: 4rem;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.875rem;
+  }
+}
+
+@media screen and (max-width: 80em) {
+  .wrapper {
+    padding: 3rem;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .header-left-pretitle {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .header-left-title {
+    font-size: 7.5rem;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .header-right-icon {
+    display: flex;
+    font-size: 2rem;
+  }
+
+  .header-right-email {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.875rem;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.875rem;
+  }
 }
