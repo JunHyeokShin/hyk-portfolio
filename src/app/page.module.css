@@ -1,168 +1,117 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+.wrapper {
+  padding: 8rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: 5rem;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+.header {
   display: flex;
-  gap: 16px;
+  justify-content: space-between;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header-left-pretitle {
+  font-size: 2.625rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.header-left-title {
+  font-size: 9.375rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header-right-icon-box {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.header-right-icon {
+  display: flex;
+  font-size: 2.625rem;
+}
+
+.header-right-email {
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.875rem;
+}
+
+.project-container {
+  border-radius: 2.5rem;
+}
+
+.project-title-image {
+  width: 100%;
+  height: auto;
+  border-radius: 2.5rem;
+}
+
+.project-info-box {
+  padding: 1.875rem;
+  color: var(--white);
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.project-title {
+  font-size: 1.875rem;
+  letter-spacing: -0.05em;
+}
+
+.project-description {
+  line-height: 85%;
+}
+
+.button {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.875rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
   border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  border-radius: 3.75rem;
+  background: none;
+  outline: 1 solid;
+  outline-color: var(--white);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.button-text {
+  color: var(--white);
+  font-size: 1.125rem;
+  line-height: 115%;
+  letter-spacing: -0.05em;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.button-icon {
+  font-size: 1.5rem;
+  color: var(--yellow);
 }
